@@ -30,9 +30,239 @@ Loads all the existing Productdetails based on the information provided in the p
  Updates the inventry json file after selling a product
  
  Attached screen shots which are tested using postmanTool
+ Following are the outputs and  the webservice implemented
+ getInventory and output from postmantool
+ 
+  @GET
+ warehouse/inventry
+ getInventory()
+	  
+ http://localhost:8080/inventory/webresources/warehouse/inventry
+ 
+ {
+    "inventory": [
+        {
+            "art_id": "1",
+            "name": "leg",
+            "stock": "8"
+        },
+        {
+            "art_id": "2",
+            "name": "screw",
+            "stock": "9"
+        },
+        {
+            "art_id": "3",
+            "name": "seat",
+            "stock": "2"
+        },
+        {
+            "art_id": "4",
+            "name": "table top",
+            "stock": "0"
+        }
+    ]
+}
+
+@GET 
+warehouse/allproducts
+getAllProducts() 
+
+http://localhost:8080/inventory/webresources/warehouse/allproducts
+{
+    "products": [
+        {
+            "contain_articles": [
+                {
+                    "amount_of": "4",
+                    "art_id": "1"
+                },
+                {
+                    "amount_of": "8",
+                    "art_id": "2"
+                },
+                {
+                    "amount_of": "1",
+                    "art_id": "3"
+                }
+            ],
+            "name": "Dining Chair"
+        },
+        {
+            "contain_articles": [
+                {
+                    "amount_of": "4",
+                    "art_id": "1"
+                },
+                {
+                    "amount_of": "8",
+                    "art_id": "2"
+                },
+                {
+                    "amount_of": "1",
+                    "art_id": "4"
+                }
+            ],
+            "name": "Dinning Table"
+        }
+    ]
+}
+
+@GET
+warehouse/allproductdetails
+getAllProductDetails() 
+
+http://localhost:8080/inventory/webresources/warehouse/allproductdetails
+
+{
+    "productDetail": [
+        {
+            "articlesAndAmount": {
+                "entry": [
+                    {
+                        "key": "seat",
+                        "value": "1"
+                    },
+                    {
+                        "key": "screw",
+                        "value": "8"
+                    },
+                    {
+                        "key": "leg",
+                        "value": "4"
+                    }
+                ]
+            },
+            "price": "500",
+            "productName": "Dining Chair"
+        },
+        {
+            "articlesAndAmount": {
+                "entry": [
+                    {
+                        "key": "table top",
+                        "value": "1"
+                    },
+                    {
+                        "key": "screw",
+                        "value": "8"
+                    },
+                    {
+                        "key": "leg",
+                        "value": "4"
+                    }
+                ]
+            },
+            "price": "1000",
+            "productName": "Dinning Table"
+        }
+    ]
+}
  
 
+@GET 
+warehouse/{<name of product>} 
+buyProduct( ) 
+ if Dining Table was sold
+ 
+ http://localhost:8080/inventory/webresources/warehouse/Dinning Table
+ 
+ {
+    "articlesAndAmount": {
+        "entry": [
+            {
+                "key": "table top",
+                "value": "1"
+            },
+            {
+                "key": "screw",
+                "value": "8"
+            },
+            {
+                "key": "leg",
+                "value": "4"
+            }
+        ]
+    },
+    "price": "1000",
+    "productName": "Dinning Table"
+}
+ 
+ Updated Inventory after selling Dinning table
+ http://localhost:8080/inventory/webresources/warehouse/inventry
+ {
+    "inventory": [
+        {
+            "art_id": "1",
+            "name": "leg",
+            "stock": "4"
+        },
+        {
+            "art_id": "2",
+            "name": "screw",
+            "stock": "1"
+        },
+        {
+            "art_id": "3",
+            "name": "seat",
+            "stock": "2"
+        },
+        {
+            "art_id": "4",
+            "name": "table top",
+            "stock": "-1"
+        }
+    ]
+}
 
+buyProduct( ) 
+ if Dining chair was sold
+ http://localhost:8080/inventory/webresources/warehouse/Dining Chair
 
+{
+    "articlesAndAmount": {
+        "entry": [
+            {
+                "key": "seat",
+                "value": "1"
+            },
+            {
+                "key": "screw",
+                "value": "8"
+            },
+            {
+                "key": "leg",
+                "value": "4"
+            }
+        ]
+    },
+    "price": "500",
+    "productName": "Dining Chair"
+}
 
-
+Udated inventory after Dining chair sold
+http://localhost:8080/inventory/webresources/warehouse/inventry
+{
+    "inventory": [
+        {
+            "art_id": "1",
+            "name": "leg",
+            "stock": "0"
+        },
+        {
+            "art_id": "2",
+            "name": "screw",
+            "stock": "-7"
+        },
+        {
+            "art_id": "3",
+            "name": "seat",
+            "stock": "1"
+        },
+        {
+            "art_id": "4",
+            "name": "table top",
+            "stock": "-1"
+        }
+    ]
+}
