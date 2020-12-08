@@ -1,0 +1,50 @@
+package warehouse.inventory;
+
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
+public class Inventory
+{
+    private String art_id;
+
+    private String name;
+
+    private String stock;
+
+    public String getArt_id ()
+    {
+        return art_id;
+    }
+
+    public void setArt_id (String art_id)
+    {
+        this.art_id = art_id;
+    }
+
+    public String getName ()
+    {
+        return name;
+    }
+
+    public void setName (String name)
+    {
+        this.name = name;
+    }
+
+    public String getStock ()
+    {
+        return stock;
+    }
+
+    public void setStock (String stock)
+    {
+        this.stock = stock;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "ClassPojo [art_id = "+art_id+", name = "+name+", stock = "+stock+"]";
+    }
+}
+			
