@@ -36,8 +36,11 @@ Loads all the existing Productdetails based on the information provided in the p
   @GET
  warehouse/inventry
  getInventory()
+ 
 	  
  http://localhost:8080/inventory/webresources/warehouse/inventry
+ 
+ 
  
  {
     "inventory": [
@@ -68,7 +71,10 @@ Loads all the existing Productdetails based on the information provided in the p
 warehouse/allproducts
 getAllProducts() 
 
+
 http://localhost:8080/inventory/webresources/warehouse/allproducts
+
+
 {
     "products": [
         {
@@ -112,7 +118,10 @@ http://localhost:8080/inventory/webresources/warehouse/allproducts
 warehouse/allproductdetails
 getAllProductDetails() 
 
+
 http://localhost:8080/inventory/webresources/warehouse/allproductdetails
+
+
 
 {
     "productDetail": [
@@ -163,9 +172,13 @@ http://localhost:8080/inventory/webresources/warehouse/allproductdetails
 @GET 
 warehouse/{<name of product>} 
 buyProduct( ) 
+	
  if Dining Table was sold
  
+ 
  http://localhost:8080/inventory/webresources/warehouse/Dinning Table
+ 
+ 
  
  {
     "articlesAndAmount": {
@@ -189,7 +202,11 @@ buyProduct( )
 }
  
  Updated Inventory after selling Dinning table
+ 
+ 
  http://localhost:8080/inventory/webresources/warehouse/inventry
+ 
+ 
  {
     "inventory": [
         {
@@ -216,8 +233,13 @@ buyProduct( )
 }
 
 buyProduct( ) 
+
+
  if Dining chair was sold
+ 
  http://localhost:8080/inventory/webresources/warehouse/Dining Chair
+ 
+ 
 
 {
     "articlesAndAmount": {
@@ -241,7 +263,11 @@ buyProduct( )
 }
 
 Udated inventory after Dining chair sold
+
+
 http://localhost:8080/inventory/webresources/warehouse/inventry
+
+
 {
     "inventory": [
         {
